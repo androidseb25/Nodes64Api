@@ -64,7 +64,11 @@ namespace Nodes64Api.Models.Database
             } catch (Exception e)
             {
                 Console.WriteLine(e);
+                logWriter?.WriteLine(e.ToString());
+                logWriter?.WriteLine("");
+                logWriter?.WriteLine("");
                 logWriter?.WriteLine(e.Message);
+                logWriter?.WriteLine("");
                 logWriter?.WriteLine("");
                 logWriter?.WriteLine(e.StackTrace);
                 logWriter?.CloseLog();
