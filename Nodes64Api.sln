@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1706.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nodes64Api", "Nodes64Api.csproj", "{AA918459-F21E-43F2-AD44-9E62402D9770}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA918459-F21E-43F2-AD44-9E62402D9770}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA918459-F21E-43F2-AD44-9E62402D9770}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA918459-F21E-43F2-AD44-9E62402D9770}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA918459-F21E-43F2-AD44-9E62402D9770}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B785755A-21B1-472D-98A3-5F72E5D38201}
+	EndGlobalSection
+EndGlobal
