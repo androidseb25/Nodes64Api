@@ -54,7 +54,7 @@ namespace Nodes64Api.Models.Database
                     connection.ConnectionString = connectionString?.ToString();
                     logWriter?.WriteLine(connection.ConnectionString);
                     logWriter?.WriteLine(connection.State.ToString());
-                    connection.Open(); //await connection.OpenAsync();   //vs  connection.Open();
+                    await connection.OpenAsync();   //vs  connection.Open();
                     logWriter?.WriteLine(connection.State.ToString());
                     logWriter?.WriteLine(connection.ConnectionTimeout.ToString());
                     items = await connection.QueryAsync(sql, commandTimeout: connection.ConnectionTimeout);
