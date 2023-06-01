@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using System.Text;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Nodes64.Models;
@@ -51,8 +52,8 @@ namespace Nodes64Api.Controllers
             return Ok(markerList);
         }
 
-        [HttpGet("{ttype}/{srcdst}")]
-        public async Task<IActionResult> GetTopTalkerNodes(string ttype, string srcdst)
+        [HttpGet("{ttype}/{srcdst}/{last24h}")]
+        public async Task<IActionResult> GetTopTalkerNodes(string ttype, string srcdst, int last24h)
         {
             if (srcdst == null || srcdst.Length == 0 || ttype.Length == 0 || ttype == null)
                 return BadRequest();
@@ -61,7 +62,7 @@ namespace Nodes64Api.Controllers
 
             Node node = new Node(connectionString);
 
-            talkers = await node.GetTop10Talker(ttype, srcdst);
+            talkers = await node.GetTop10Talker(ttype, srcdst, last24h);
 
             if (talkers == null)
             {
@@ -85,7 +86,11 @@ namespace Nodes64Api.Controllers
 
             foreach (var item in nodes)
             {
-                item.node_name = System.Net.WebUtility.HtmlDecode(item.node_name);
+                //byte[] bytes = Encoding.Default.GetBytes(item.node_name);
+                //item.node_name = Encoding.UTF8.GetString(bytes);
+                string convS = System.Net.WebUtility.HtmlDecode(item.node_name);
+                Console.WriteLine(convS);
+                item.node_name = convS;
                 item.latitude = "";
                 item.longitude = "";
             }

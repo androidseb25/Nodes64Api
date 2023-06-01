@@ -142,17 +142,19 @@ namespace Nodes64.Models
             return markerList;
         }
 
-        public async Task<List<Talker>?> GetTop10Talker(string ttype, string srcdstnode)
+        public async Task<List<Talker>?> GetTop10Talker(string ttype, string srcdstnode, int showLast24 = 0)
         {
             try
             {
                 string table = ttype == "traceroute" ? "tasks_traceroute" : "tasks_icmp";
                 string srcdst = srcdstnode == "src" ? "src_node" : "dst_node";
+                string last24h = showLast24 == 1 ? "and tasks.report_time >= DATE_SUB(NOW(),INTERVAL 0 HOUR)" : "";
 
                 string sql = @$"select COUNT(*) as taskcount, tasks.{srcdst} as node, task_type as type, n.node_name, n.node_name_public from {table} tasks
 left join nodes n on n.node_id = tasks.{srcdst}
 where
 CHAR_LENGTH(n.latitude) > 0 and CHAR_LENGTH(n.longitude) > 0
+{last24h}
 group by tasks.{srcdst}, type
 order by taskcount DESC
 LIMIT 10 ";

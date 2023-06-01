@@ -54,6 +54,7 @@ namespace Nodes64Api.Models.Database
                     connection.ConnectionString = connectionString?.ToString();
                     logWriter?.WriteLine(connection.ConnectionString);
                     logWriter?.WriteLine(connection.State.ToString());
+                    logWriter?.WriteLine(connection.ConnectionTimeout.ToString());
                     await connection.OpenAsync();   //vs  connection.Open();
                     logWriter?.WriteLine(connection.State.ToString());
                     logWriter?.WriteLine(connection.ConnectionTimeout.ToString());
