@@ -220,7 +220,7 @@ CHAR_LENGTH(n.latitude) > 0 and CHAR_LENGTH(n.longitude) > 0";
 from nodes n where 
 CHAR_LENGTH(n.latitude) > 0 and CHAR_LENGTH(n.longitude) > 0
 having 
-trCount > 15 and icmpCount > 30";
+trCount >= 15 and icmpCount >= 30";
 
                 dynamic dTasks = await SelectFromSql(sql);
                 var jsonData = JsonConvert.SerializeObject(dTasks);
