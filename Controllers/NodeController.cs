@@ -52,7 +52,7 @@ namespace Nodes64Api.Controllers
             return Ok(markerList);
         }
 
-        [HttpGet("{ttype}/{srcdst}/{last24h}")]
+        [HttpGet("TopTalkers/{ttype}/{srcdst}/{last24h}")]
         public async Task<IActionResult> GetTopTalkerNodes(string ttype, string srcdst, int last24h)
         {
             if (srcdst == null || srcdst.Length == 0 || ttype.Length == 0 || ttype == null)

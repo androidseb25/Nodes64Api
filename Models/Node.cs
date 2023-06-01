@@ -148,7 +148,7 @@ namespace Nodes64.Models
             {
                 string table = ttype == "traceroute" ? "tasks_traceroute" : "tasks_icmp";
                 string srcdst = srcdstnode == "src" ? "src_node" : "dst_node";
-                string last24h = showLast24 == 1 ? "and tasks.report_time >= DATE_SUB(NOW(),INTERVAL 0 HOUR)" : "";
+                string last24h = showLast24 == 1 ? "and tasks.report_time >= DATE_SUB(NOW(),INTERVAL 24 HOUR)" : "";
 
                 string sql = @$"select COUNT(*) as taskcount, tasks.{srcdst} as node, task_type as type, n.node_name, n.node_name_public from {table} tasks
 left join nodes n on n.node_id = tasks.{srcdst}
